@@ -4,18 +4,12 @@
   <artifactId>pre-torneopa</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>  
-  
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <spring.version>4.1.0.RELEASE</spring.version>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <tomcat.version>8.0.12</tomcat.version>            
-  </properties>
  
-
+ 
+  <properties>
+    <tomcat.version>8.5.23</tomcat.version>
+  </properties>
+  
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -29,42 +23,72 @@
       <version>2.1</version>
       <scope>provided</scope>
     </dependency>
-      
+  
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper-el</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jsp-api</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency> 
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-logging-juli</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>    
-        
-        
 <dependency>
     <groupId>org.apache.derby</groupId>
     <artifactId>derby</artifactId>
     <version>10.12.1.1</version>
-    <scope>prod</scope>
+    <scope>compile</scope>
 </dependency>
-  </dependencies>
 
+
+  </dependencies>
   <build>
-   
+ <finalName>ztorneopa</finalName>
     <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>appassembler-maven-plugin</artifactId>
+            <version>2.0.0</version>
+            <configuration>
+                <assembleDirectory>target</assembleDirectory>
+                <programs>
+                    <program>
+                        <mainClass>launch.Main</mainClass>
+                        <name>webapp</name>
+                    </program>
+                </programs>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>assemble</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+   
+  
+  
+    
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -74,25 +98,6 @@
           <target>1.4</target>
         </configuration>
       </plugin>
-      
-      
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>2.4</version>
-            <executions>
-                <execution>
-                    <id>copy-dependencies</id>
-                    <phase>package</phase>
-                    <goals><goal>copy-dependencies</goal></goals>
-                </execution>
-            </executions>
-        </plugin>      
-  
-
-
-       
-         
-        </plugins>    
+    </plugins>
   </build>
 </project>
