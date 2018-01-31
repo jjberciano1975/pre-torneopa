@@ -32,5 +32,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Derby/derby.jar"/>
+	<classpathentry kind="lib" path="C:/Derby/derbytools.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
