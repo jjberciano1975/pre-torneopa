@@ -22,6 +22,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/jjb.WPSNETWORK/git/pre-torneopa/pre-torneopa/src/main/java/bd/derby.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
