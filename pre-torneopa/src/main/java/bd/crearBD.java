@@ -14,12 +14,14 @@ public class crearBD {
 
  /**
   * @param args
+ * @throws IllegalAccessException 
+ * @throws InstantiationException 
   */
- public static void main(String[] args) {
+ public static void main(String[] args) throws InstantiationException, IllegalAccessException {
      String driver = "org.apache.derby.jdbc.EmbeddedDriver";
      String dbName = "paises";
      String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
-     String dbDirectory = "\\Derby\\";
+ //    String dbDirectory = "\\Derby\\";
    //  String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
      String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
      /*
@@ -30,7 +32,8 @@ public class crearBD {
      */
      Connection conn = null;
      try{
-       Class.forName(driver);
+       Class.forName(driver).newInstance();
+    
      } catch(java.lang.ClassNotFoundException e) {
        e.printStackTrace();
      }

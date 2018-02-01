@@ -6,7 +6,7 @@
  <HEAD><TITLE>torneo pa</TITLE></HEAD>
   <BODY BGCOLOR="#CCCCFF">
   <P></P>
-  <H2>Introduce tus datos por favor:</H2><BR>
+  <H2>Introduce tus datos por fi:</H2><BR>
     <HR></HR>
     <CENTER>
 	 <FORM NAME="FORM1" METHOD="POST"
