@@ -17,7 +17,7 @@ public class crearBD {
   */
  public static void main(String[] args) {
      String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-     String dbName = "iadDemoDerby";
+     String dbName = "paises";
      String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
      String dbDirectory = "\\Derby\\";
      String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
@@ -34,6 +34,7 @@ public class crearBD {
        e.printStackTrace();
      }
      try {
+    	 
        conn = DriverManager.getConnection(connectionURL);
        Statement st = conn.createStatement();
        String sqlCreateTableUsers =
