@@ -20,7 +20,8 @@ public class crearBD {
      String dbName = "paises";
      String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
      String dbDirectory = "\\Derby\\";
-     String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
+   //  String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
+     String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
      /*
      Si no se especifica la ruta donde se creará la base de datos,
      por defecto se creará en la misma carpeta donde se encuentra el derby.jar
