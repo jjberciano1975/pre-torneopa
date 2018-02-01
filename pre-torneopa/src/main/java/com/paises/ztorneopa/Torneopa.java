@@ -2,6 +2,7 @@ package com.paises.ztorneopa;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -25,11 +26,11 @@ public class Torneopa extends HttpServlet {
 	
 	public static void Createuser (PrintWriter pw){ 
 		 String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	     String dbName = "paises";
+	     String dbName = "BdPaises";
 	     String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
 	   //  String dbDirectory = "\\Derby\\";
-	     String dbDirectory = "jar";
-	     String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
+	  //   String dbDirectory = "jar";
+	     String connectionURL = "jdbc:derby:"+ dbName + ";" + dbParam;
 	     /*
 	     Si no se especifica la ruta donde se creará la base de datos,
 	     por defecto se creará en la misma carpeta donde se encuentra el derby.jar
@@ -45,7 +46,7 @@ public class Torneopa extends HttpServlet {
 	     try {
 	    	 pw.println ("conn = DriverManager.getConnection(connectionURL);</br>");
 	    	// connectionURL= "jdbc:derby://pre-torneopa.herokuapp.com/paises;create=true";
-	    	 connectionURL= "jdbc:derby:paises;create=true"; 
+	    	 connectionURL= "jdbc:derby:BdPaises;create=true"; 
 	    	 conn = DriverManager.getConnection(connectionURL);
 	     
 	      pw.println (" Statement st = conn.createStatement();</br>");
@@ -81,10 +82,10 @@ public class Torneopa extends HttpServlet {
 	}   
 	public static void Selectuser (PrintWriter pw){
 		String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	     String dbName = "iadDemoDerby";
+	     String dbName = "BdPaises";
 	     String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
-	     String dbDirectory = "\\Derby\\";
-	     String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
+	  //   String dbDirectory = "\\Derby\\";
+	     String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
 	     
 	     Connection conn = null;
 	     try{
@@ -145,8 +146,8 @@ public class Torneopa extends HttpServlet {
 		pw.println("<UL>\n");
 		pw.println("Te llamas " + request.getParameter("NOM") + "<BR>");
 		pw.println("y tienes "  + request.getParameter("EDA") + " anios<BR>");
-		Createuser(pw);
-		//Selectuser(pw);
+		//Createuser(pw);
+		Selectuser(pw);
 		
 		pw.println("</BODY></Html>");
 		pw.close();		
