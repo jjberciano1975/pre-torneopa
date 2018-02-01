@@ -1,10 +1,6 @@
 package com.paises.ztorneopa;
 
-import java.io.File;
-
-
 import java.io.IOException;
-
 
 import java.io.PrintWriter;
 
@@ -12,9 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.catalina.LifecycleException;
-import org.apache.catalina.startup.Tomcat;
 
 import java.sql.Connection;
 
@@ -24,18 +17,72 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
-
-
 /**
  * Servlet implementation class Torneopa
  */
 public class Torneopa extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	
-	public static void Selectuser (){
+	public static void Createuser (PrintWriter pw){ 
+		 String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+	     String dbName = "paises";
+	     String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
+	   //  String dbDirectory = "\\Derby\\";
+	     String dbDirectory = "jar";
+	     String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
+	     /*
+	     Si no se especifica la ruta donde se creará la base de datos,
+	     por defecto se creará en la misma carpeta donde se encuentra el derby.jar
+	     En ese caso la cadena de conexió sería la siguiente:
+	     String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
+	     */
+	     Connection conn = null;
+	     try{
+	       Class.forName(driver);
+	     } catch(java.lang.ClassNotFoundException e) {
+	       e.printStackTrace();
+	     }
+	     try {
+	    	 pw.println ("conn = DriverManager.getConnection(connectionURL);</br>");
+	    	// connectionURL= "jdbc:derby://pre-torneopa.herokuapp.com/paises;create=true";
+	    	 connectionURL= "jdbc:derby:paises;create=true"; 
+	    	 conn = DriverManager.getConnection(connectionURL);
+	     
+	      pw.println (" Statement st = conn.createStatement();</br>");
+	       Statement st = conn.createStatement();
+	       String sqlCreateTableUsers =
+	              "CREATE TABLE users ( " +
+	              "FirstName VARCHAR(20) NOT NULL, " +
+	              "LastName VARCHAR(20) NOT NULL, " +
+	              "idUser INTEGER NOT NULL CONSTRAINT idUser_PK PRIMARY KEY " +
+	              ")";
+	       st.execute(sqlCreateTableUsers);
+	       pw.println("La base de datos '" + dbName + "' se ha creado correctamente");
+	       
+	       
+	    st.executeUpdate("INSERT INTO users VALUES('Juan', 'Perez', 1)");
+	    st.executeUpdate("INSERT INTO users VALUES('Renzo', 'Lopez', 2)");
+	    st.executeUpdate("INSERT INTO users VALUES('Carla', 'Mendivil', 3)");       
+	       
+	       
+	       
+	     }  catch (Throwable e)  {
+	    	 pw.println("Error al crear la base de datos '" + dbName + "'");
+	       e.printStackTrace();
+	      
+	       pw.println(e.getLocalizedMessage());
+	       
+	       
+	     } finally {
+	       try { conn.close(); }
+	       catch (Throwable t){}
+	     }
+
+	}   
+	public static void Selectuser (PrintWriter pw){
 		String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 	     String dbName = "iadDemoDerby";
-	     String dbParam = "create=true"; //Si la base de datos no existe, se crearÃ¡ una nueva
+	     String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
 	     String dbDirectory = "\\Derby\\";
 	     String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
 	     
@@ -46,46 +93,28 @@ public class Torneopa extends HttpServlet {
 	       e.printStackTrace();
 	     }
 	     try {
+	      
 	       conn = DriverManager.getConnection(connectionURL);
 	       Statement statement = conn.createStatement();
 	       ResultSet rs = statement.executeQuery("select * from users");
 	       
 	       while (rs.next()) 
 	       { 
-	           System.out.println (rs.getString (1) + " " + rs.getString (2)+ " " + rs.getInt(3)); 
+	    	   pw.println (rs.getString (1) + " " + rs.getString (2)+ " " + rs.getInt(3)); 
 	       }
 	       
 	       
 	       
 	     }  catch (Throwable e)  {
-	       System.out.println("Error en la bd '" + dbName + "'");
+	    	 pw.println("Error en la bd '" + dbName + "'");
 	       e.printStackTrace();
+	       pw.println( e.getStackTrace());
 	     } finally {
 	       try { conn.close(); }
 	       catch (Throwable t){}
 	     }
-	}
-	public static void main(String[] args) throws ServletException, LifecycleException {
-		  String webappDirLocation = "src/main/webapp/";
-	        Tomcat tomcat = new Tomcat();
-	        
-	        String webPort = System.getenv("PORT");
-	        if (webPort == null || webPort.isEmpty()) {
-	            webPort = "8080";
-	        }
-
-	    //    tomcat.setPort(Integer.valueOf(webPort));
-
-	        tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
-	        System.out.println("configuring app with basedir: "
-	                + new File("./" + webappDirLocation).getAbsolutePath());
-
-	        tomcat.start();
-	        tomcat.getServer().await();
-	}
+	}	
 	
-	private static final long serialVersionUID = 1L;
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -107,7 +136,6 @@ public class Torneopa extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		doGet(request, response);
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
@@ -116,13 +144,12 @@ public class Torneopa extends HttpServlet {
 		pw.println("<H2>Leyendo parametros desde un formulario html</H2><P>");
 		pw.println("<UL>\n");
 		pw.println("Te llamas " + request.getParameter("NOM") + "<BR>");
-		pw.println("y tienes "  + request.getParameter("EDA") + " anios<BR>");		
+		pw.println("y tienes "  + request.getParameter("EDA") + " anios<BR>");
+		Createuser(pw);
+		//Selectuser(pw);
 		
-		Selectuser();
-		
-
 		pw.println("</BODY></Html>");
-		pw.close();
+		pw.close();		
 	}
 
 }
