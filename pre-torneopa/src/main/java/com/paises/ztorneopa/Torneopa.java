@@ -108,8 +108,8 @@ public class Torneopa extends HttpServlet {
 	       
 	     }  catch (Throwable e)  {
 	    	 pw.println("Error en la bd '" + dbName + "'");
-	       e.printStackTrace();
-	       pw.println( e.getStackTrace());
+	      
+	       pw.println(e.getLocalizedMessage());
 	     } finally {
 	       try { conn.close(); }
 	       catch (Throwable t){}
