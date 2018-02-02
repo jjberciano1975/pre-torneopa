@@ -1,13 +1,10 @@
 ----------------------------------------------------------------
-Thu Feb 01 17:43:57 CET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0161-5240-d9d5-000000c9a0d0 
-on database directory C:\Users\jjb.WPSNETWORK\git\pre-torneopa\pre-torneopa\BdPaises with class loader sun.misc.Launcher$AppClassLoader@387f44 
-Loaded from file:/C:/Users/jjb.WPSNETWORK/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Fri Feb 02 08:10:55 CET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-0161-555a-9664-000000a53760 
+on database directory C:\Users\jjb.WPSNETWORK\git\pre-torneopa\pre-torneopa\BdPaises  with class loader sun.misc.Launcher$AppClassLoader@387f44 
+Loaded from file:/C:/Users/jjb.WPSNETWORK/git/pre-torneopa/pre-torneopa/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_51-b16
 user.dir=C:\Users\jjb.WPSNETWORK\git\pre-torneopa\pre-torneopa
-os.name=Windows 8.1
-os.arch=x86
-os.version=6.3
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
