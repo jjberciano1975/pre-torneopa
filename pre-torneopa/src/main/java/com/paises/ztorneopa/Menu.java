@@ -17,7 +17,7 @@ import persistence.UsersCrud;
  */
 public class Menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	 List<Users> users=null;
+	// List<Users> users=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,7 +30,7 @@ public class Menu extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		 users =	UsersCrud.cargalista();
+		// users =	UsersCrud.cargalista();
 	}
 
 	/**
@@ -47,8 +47,8 @@ public class Menu extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		 System.out.println (users);
-		 response.getWriter().append((CharSequence) users).append(request.getContextPath());
+	//	 System.out.println (users);
+		// response.getWriter().append((CharSequence) users).append(request.getContextPath());
 	}
 
 }

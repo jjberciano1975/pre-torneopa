@@ -25,7 +25,7 @@ import java.util.List;
 public class Torneopa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	 List<Users> users=null;
+	 //List<Users> users=null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,7 +40,7 @@ public class Torneopa extends HttpServlet {
     
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
-		  users =	UsersCrud.cargalista();
+		  //users =	UsersCrud.cargalista();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -72,8 +72,8 @@ public class Torneopa extends HttpServlet {
 		response.getWriter().append(" POS  Selectuser: ").append(request.getContextPath());	
 	*/
 	
-		 System.out.println (users);
-		 response.getWriter().append((CharSequence) users).append(request.getContextPath());	
+		// System.out.println (users);
+		// response.getWriter().append((CharSequence) users).append(request.getContextPath());	
 		 
 		pw.println("</BODY></Html>");
 		pw.close();		
