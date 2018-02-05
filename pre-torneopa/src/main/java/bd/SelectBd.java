@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import entities.Users;
+
 /**
  * @author www.imagineanddo.com
  *
@@ -39,7 +41,8 @@ public class SelectBd {
        
        while (rs.next()) 
        { 
-           System.out.println (rs.getString (1) + " " + rs.getString (2)+ " " + rs.getInt(3)); 
+           System.out.println (rs.getString (1) + " " + rs.getString (2)+ " " + rs.getInt(3));
+           Users user =new Users(rs.getString (1), rs.getString (2), rs.getInt(3));
        }
        
        

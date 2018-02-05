@@ -10,7 +10,7 @@
     <HR></HR>
     <CENTER>
 	 <FORM NAME="FORM1" METHOD="POST"
-		ACTION="/Torneopa">
+		ACTION="/ztorneopa/Torneopa">
 	   <TABLE BORDER>
 		<TR>
 		  <TD><B>Nombre:</TD>
@@ -24,6 +24,15 @@
 	   <P></P>
 	  
 	   <INPUT TYPE=SUBMIT VALUE="Enviar">
+	   <HR></HR>
+	   Formulario HTML que invocará a un servlet
+         </FORM>
+         
+          <FORM NAME="Menu" METHOD="POST"
+		ACTION="/ztorneopa/Menu">
+
+	  
+	   <INPUT TYPE=SUBMIT VALUE="Menu">
 	   <HR></HR>
 	   Formulario HTML que invocará a un servlet
          </FORM>

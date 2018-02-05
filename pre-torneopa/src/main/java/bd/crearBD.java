@@ -43,21 +43,22 @@ public class crearBD {
     	 
        conn = DriverManager.getConnection(connectionURL);
        Statement st = conn.createStatement();
+       st.execute("drop table users ");
        String sqlCreateTableUsers =
               "CREATE TABLE users ( " +
-              "FirstName VARCHAR(20) NOT NULL, " +
-              "LastName VARCHAR(20) NOT NULL, " +
+              "name VARCHAR(30) NOT NULL, " +
+              "email VARCHAR(30) NOT NULL, " +              
               "idUser INTEGER NOT NULL CONSTRAINT idUser_PK PRIMARY KEY " +
               ")";
        st.execute(sqlCreateTableUsers);
        System.out.println("La base de datos '" + dbName + "' se ha creado correctamente");
        
+        
+    st.executeUpdate("INSERT INTO users VALUES('Juan Perez', 'JuanPerez@lamoto.com', 1)");
+    st.executeUpdate("INSERT INTO users VALUES('Renzo Lopez', 'RenzoLopez@lamoto.com', 2)");
+    st.executeUpdate("INSERT INTO users VALUES('Carla Mendivil', 'CarlaMendivil@lamoto.com', 3)");       
        
-    st.executeUpdate("INSERT INTO users VALUES('Juan', 'Perez', 1)");
-    st.executeUpdate("INSERT INTO users VALUES('Renzo', 'Lopez', 2)");
-    st.executeUpdate("INSERT INTO users VALUES('Carla', 'Mendivil', 3)");       
-       
-       
+    System.out.println("insert se ha hecho correctamente");
        
      }  catch (Throwable e)  {
        System.out.println("Error al crear la base de datos '" + dbName + "'");
