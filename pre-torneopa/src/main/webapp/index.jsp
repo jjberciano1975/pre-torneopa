@@ -29,7 +29,7 @@
          </FORM>
          
           <FORM NAME="Menu" METHOD="POST"
-		ACTION="/ztorneopa/inicio.html">
+		ACTION="/ztorneopa/inicial.html">
 
 	  
 	   <INPUT TYPE=SUBMIT VALUE="Menu">
