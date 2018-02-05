@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Mon Feb 05 09:53:52 CET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-0161-652b-e926-000000a09dc0 
+Mon Feb 05 10:19:15 CET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-0161-6543-286c-000000a1fc48 
 on database directory C:\Users\jjb.WPSNETWORK\git\pre-torneopa\pre-torneopa\BdPaises  with class loader sun.misc.Launcher$AppClassLoader@387f44 
-Loaded from file:/C:/Users/jjb.WPSNETWORK/git/pre-torneopa/pre-torneopa/src/main/java/com/paises/ztorneopa/derby.jar
+Loaded from file:/C:/Users/jjb.WPSNETWORK/git/pre-torneopa/pre-torneopa/src/main/java/persistence/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_51-b16
 user.dir=C:\Users\jjb.WPSNETWORK\git\pre-torneopa\pre-torneopa
