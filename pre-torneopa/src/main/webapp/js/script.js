@@ -11,7 +11,7 @@ app.controller("SeguroController",['$scope','$log','$http',function($scope,$log,
 	  }).success(function(data, status, headers, config) {
 	      $scope.seguro=data;
 	  }).error(function(data, status, headers, config) {
-	      alert("Ha fallado la petición. Estado HTTP:"+status);
+	      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
 	  });
 	   
 	}]);
@@ -38,3 +38,16 @@ app.controller('SeguroControllerEnvio',['$scope','$log','$http',function($scope,
     
    }]);
 
+app.controller('userController',['$scope','$log','$http',function($scope,$log,$http) {
+	
+	$scope.vari=2;
+	  $http({
+		    method: 'GET', 
+		    url: 'user.json'
+		  }).success(function(data, status, headers, config) {
+		      $scope.elemento=data;
+		  }).error(function(data, status, headers, config) {
+		      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
+		  });
+   }]);
+	
