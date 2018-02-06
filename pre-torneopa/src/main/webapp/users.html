@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+<body ng-controller="userController">
+{{vari}}
+{{4}}
+	
+<ul>
+<li ng-repeat="x in users | orderBy">{{x}}</li>
+</ul>	 
+	
+<table>
+<td>ID</td><td>name</td><td>email</td>
+<tr ng-repeat="elemento in users | orderBy">
+<td>{{elemento.idUser}}</td><td>{{elemento.name}}</td><td>{{elemento.email}}</td>
+</tr>
+</table>
+			
+
+
+<ul>
+<li ng-repeat="x in cars | orderBy">{{x}}</li>
+</ul>	  
+
+<table>
+<tr ng-repeat="elemento in cars | orderBy">
+<td>{{elemento.marca}}</td><td>{{elemento.modelo}}</td>
+</tr>
+</table>	
+</body>
+</html>

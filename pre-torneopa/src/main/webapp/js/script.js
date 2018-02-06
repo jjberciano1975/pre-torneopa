@@ -41,13 +41,25 @@ app.controller('SeguroControllerEnvio',['$scope','$log','$http',function($scope,
 app.controller('userController',['$scope','$log','$http',function($scope,$log,$http) {
 	
 	$scope.vari=2;
+	
 	  $http({
 		    method: 'GET', 
-		    url: 'user.json'
+		    url: 'java/servicios/UserRestful'
 		  }).success(function(data, status, headers, config) {
-		      $scope.elemento=data;
+		      $scope.users=data;
+		  }).error(function(data, status, headers, config) {
+		      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
+		  });
+	
+	 
+	  $http({
+		    method: 'GET', 
+		    url: 'coches.json'
+		  }).success(function(data, status, headers, config) {
+		      $scope.cars=data;
 		  }).error(function(data, status, headers, config) {
 		      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
 		  });
    }]);
+
 	
