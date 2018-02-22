@@ -13,12 +13,20 @@ import entities.Users;
 import persistence.UsersCrud;
 
 @Path("/UserRestful")
-public class UserRestful {
+public class UserRestful extends Users {
+	public UserRestful(String name, String email, int idUser) {
+		super(name, email, idUser);
+		// TODO Auto-generated constructor stub
+	}
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Users> getUser() {
+	public  List<Users> getUser() {
 		 System.out.println ("hola");
 		 List<Users> users =	UsersCrud.cargalista();
 		  return users;
 	}
+	
+	
+	
 }

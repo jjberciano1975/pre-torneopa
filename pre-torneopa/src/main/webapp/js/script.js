@@ -11,7 +11,7 @@ app.controller("SeguroController",['$scope','$log','$http',function($scope,$log,
 	  }).success(function(data, status, headers, config) {
 	      $scope.seguro=data;
 	  }).error(function(data, status, headers, config) {
-	      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
+	      alert("Ha fallado la peticiÃƒÂ³n. Estado HTTP:"+status);
 	  });
 	   
 	}]);
@@ -44,11 +44,11 @@ app.controller('userController',['$scope','$log','$http',function($scope,$log,$h
 	
 	  $http({
 		    method: 'GET', 
-		    url: 'java/servicios/UserRestful'
+		    url: 'servicios/UserRestful'
 		  }).success(function(data, status, headers, config) {
 		      $scope.users=data;
 		  }).error(function(data, status, headers, config) {
-		      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
+		      alert("Ha fallado la peticion. Estado HTTP:"+status);
 		  });
 	
 	 
@@ -58,7 +58,7 @@ app.controller('userController',['$scope','$log','$http',function($scope,$log,$h
 		  }).success(function(data, status, headers, config) {
 		      $scope.cars=data;
 		  }).error(function(data, status, headers, config) {
-		      alert("Ha fallado la peticiÃ³n. Estado HTTP:"+status);
+		      alert("Ha fallado la peticion. Estado HTTP:"+status);
 		  });
    }]);
 

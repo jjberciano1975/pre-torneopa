@@ -37,6 +37,7 @@
       <version>${servlet-version}</version>
       <scope>provided</scope>
     </dependency>
+    
     <dependency>
     	<groupId>org.glassfish.jersey.containers</groupId>
 	    <artifactId>jersey-container-servlet</artifactId>
@@ -113,8 +114,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.0.2</version>
         <configuration>
-          <source>1.4</source>
-          <target>1.4</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>

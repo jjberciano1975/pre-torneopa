@@ -21,19 +21,20 @@
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
 	    	<param-name>jersey.config.server.provider.packages</param-name>
-	    	<param-value>com.wpsnetwork.servicios</param-value>
+	    	<param-value>servicios</param-value>
 	    </init-param>
 		<init-param>
 		    <param-name>jersey.config.server.provider.scanning.recursive</param-name>
 		    <param-value>false</param-value>
 		</init-param>
-	
+	  
 	</servlet>  
 	 	<servlet-mapping>
 		<servlet-name>Jersey Web Application</servlet-name>
 		<url-pattern>/servicios/*</url-pattern>
 	</servlet-mapping> 
     <servlet-mapping>
+        
     	<servlet-name>Torneopa</servlet-name>
     	<url-pattern>/Torneopa</url-pattern>
     </servlet-mapping>
