@@ -26,12 +26,7 @@ public class crearBD {
  //    String dbDirectory = "\\Derby\\";
    //  String connectionURL = "jdbc:derby:"+dbDirectory + dbName + ";" + dbParam;
      String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
-     /*
-     Si no se especifica la ruta donde se creará la base de datos,
-     por defecto se creará en la misma carpeta donde se encuentra el derby.jar
-     En ese caso la cadena de conexion sería la siguiente:
-     String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
-     */
+  
      Connection conn = null;
      try{
        Class.forName(driver);
