@@ -24,7 +24,7 @@ public class SelectBd {
  public static void main(String[] args) {
      String driver = "org.apache.derby.jdbc.EmbeddedDriver";
      String dbName = "BdPaises";
-     String dbParam = "create=true"; //Si la base de datos no existe, se creará una nueva
+     String dbParam = "create=true"; //Si la base de datos no existe, se crear una nueva
   //   String dbDirectory = "\\Derby\\";
      String connectionURL = "jdbc:derby:"+ dbName + ";" + dbParam;
      
