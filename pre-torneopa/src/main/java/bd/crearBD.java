@@ -29,7 +29,7 @@ public class crearBD {
      /*
      Si no se especifica la ruta donde se creará la base de datos,
      por defecto se creará en la misma carpeta donde se encuentra el derby.jar
-     En ese caso la cadena de conexió sería la siguiente:
+     En ese caso la cadena de conexion sería la siguiente:
      String connectionURL = "jdbc:derby:" + dbName + ";" + dbParam;
      */
      Connection conn = null;
